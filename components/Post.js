@@ -1,4 +1,8 @@
 import { TextInput, View, StyleSheet, Image, Text } from "react-native"
+import CustomText from "./CustomText"
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faEllipsis } from "@fortawesome/free-solid-svg-icons"
+
 
 export default Post = () => {
     return(
@@ -6,36 +10,45 @@ export default Post = () => {
             <View style={styles.viewPost}>
                 <Image source={require('../images/flower.jpg')} style={styles.imgProfilePhoto}/>
                 <View>
-                    <Text style={styles.txtUser}>{"Margaritha Boris shared a file"}</Text>
-                    <Text>{"1hr."}</Text>
+                    <CustomText style={styles.txtName}>{"Margarita Boris"}</CustomText>
+                    <CustomText style={styles.txtDetail}>{"18.000 takipçi"}</CustomText>
+                    <CustomText style={styles.txtDetail}>{"1hr."}</CustomText>
                 </View>
-                
+                <FontAwesomeIcon icon={faEllipsis} style={styles.iconDetail}/>
             </View>
             <View style={styles.viewPost}>
                 <Image source={require('../images/flower.jpg')} style={styles.imgProfilePhoto}/>
             </View>
         </View>
-        
-        
     )
 }
 
 const styles = StyleSheet.create({
     viewPost:{
         backgroundColor: "#fff",
-        marginTop: 10,
+        marginBottom: 5,
         paddingTop: 20,
         paddingBottom: 20,
-        paddingLeft: 30,
+        paddingLeft: 10,
         flexDirection: "row",
     },
     imgProfilePhoto:{
-        width:50,
-        height: 50,
+        width:55,
+        height: 55,
         borderRadius: 10,
         marginRight: 15
     },
-    txtUser:{
-        marginBottom:7
+    txtName:{
+        fontWeight: "bold",
+        fontSize: 15,
+        includeFontPadding: false
+    },
+    txtDetail: {
+        fontSize: 12,
+        color: "#93908F"
+    },
+    iconDetail:{
+        color: "#93908f",
+        marginLeft: 185
     }
 })

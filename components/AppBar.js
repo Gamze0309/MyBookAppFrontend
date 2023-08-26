@@ -3,23 +3,42 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { useState } from "react"
 import { View, StyleSheet, Text, TextInput, Button, TouchableOpacity, Pressable } from "react-native"
+import CustomText from "./CustomText";
+import { useEffect } from "react";
+import * as Font from 'expo-font';
 
 export default AppBar = () => {
     const [text, setText] = useState("");
+    const [fontLoaded, setFontLoaded] = useState(false);
+    useEffect(() => {
+        async function loadFont() {
+          await Font.loadAsync({
+            'custom-font': require('../assets/fonts/OpenSans-Regular.ttf'),
+          });
+    
+          setFontLoaded(true);
+        }
+    
+        loadFont();
+      }, []);
+
+      if (!fontLoaded) {
+        return <TextInput>Loading...</TextInput>;
+      }
+
     return(
         <View style={styles.appBar}>
             <View style= {styles.txtSearchView}>
                 <FontAwesomeIcon icon={faMagnifyingGlass} color="#fff" style={{display:"inline"}}/>
-                <TextInput style={styles.txtSearch} placeholder="Search" placeholderTextColor= "#fff" onChangeText={newText=> setText(newText)} defaultValue={text} />
+                <TextInput style={styles.txtSearch} placeholder="Search" placeholderTextColor= "#fff" onChangeText={newText=> setText(newText)} defaultValue={text}/>
             </View>
             <Pressable style={styles.btnMessage}>
                 <FontAwesomeIcon icon={faEnvelope} style={{color: "#ffffff"}} size={25} />
             </Pressable>
             <View style={styles.viewMessageNumber}>
-                <Text style={styles.txtMessageNumber}>{12}</Text>
+                <CustomText style={styles.txtMessageNumber}>{"11"}</CustomText>
             </View>
         </View>
-        
     )
 }
 
@@ -28,6 +47,7 @@ const styles=StyleSheet.create({
         backgroundColor: "#96B6C5",
         height: 150,
         flexDirection: "row",
+        marginBottom: 10,
     },
     txtSearchView:{
         height: 60,
@@ -47,7 +67,8 @@ const styles=StyleSheet.create({
         height: "100%",
         color:"#fff",
         borderRadius: 20,
-        marginLeft: 10
+        marginLeft: 10,
+        fontFamily: 'custom-font'
     },
     btnMessage:{
         backgroundColor: "#ADC4CE",
