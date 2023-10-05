@@ -8,7 +8,7 @@ export default CustomText = (props) => {
     useEffect(() => {
       async function loadFont() {
         await Font.loadAsync({
-          'custom-font': require('../assets/fonts/OpenSans-Regular.ttf'),
+          'custom-font': require('../../assets/fonts/OpenSans-Regular.ttf'),
         });
   
         setFontLoaded(true);

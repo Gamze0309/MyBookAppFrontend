@@ -2,20 +2,16 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import Post from './components/Post';
 import AppBar from './components/AppBar';
-import React, { useEffect } from 'react';
+import React, { StrictMode, useEffect } from 'react';
+import MainContainer from './navigation/MainContainer';
+import HomeScreen from './navigation/screens/HomeScreen';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <AppBar/>
-      <Post/>
-      <StatusBar style="auto"/>
-    </View>
+    <StrictMode>
+      <MainContainer/>
+    </StrictMode>
+    
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#F8F6F4"
-  },
-});

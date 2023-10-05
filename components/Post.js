@@ -1,5 +1,5 @@
 import { TextInput, View, StyleSheet, Image, Text } from "react-native"
-import CustomText from "./CustomText"
+import CustomText from "./customs/CustomText"
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons"
 

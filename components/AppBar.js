@@ -3,7 +3,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { useState } from "react"
 import { View, StyleSheet, Text, TextInput, Button, TouchableOpacity, Pressable } from "react-native"
-import CustomText from "./CustomText";
+import CustomText from "./customs/CustomText";
 import { useEffect } from "react";
 import * as Font from 'expo-font';
 
@@ -30,7 +30,7 @@ export default AppBar = () => {
         <View style={styles.appBar}>
             <View style= {styles.txtSearchView}>
                 <FontAwesomeIcon icon={faMagnifyingGlass} color="#fff" style={{display:"inline"}}/>
-                <TextInput style={styles.txtSearch} placeholder="Search" placeholderTextColor= "#fff" onChangeText={newText=> setText(newText)} defaultValue={text}/>
+                <TextInput style={styles.txtSearch} placeholder="Ara" placeholderTextColor= "#fff" onChangeText={newText=> setText(newText)} defaultValue={text}/>
             </View>
             <Pressable style={styles.btnMessage}>
                 <FontAwesomeIcon icon={faEnvelope} style={{color: "#ffffff"}} size={25} />
